@@ -1,8 +1,29 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+:root {
+  --brand: #0a8a43;
+  --brand-dark: #07703a;
+  --page: #eef4ee;
+  --surface: #f9fbf9;
+  --line: #e2e9e2;
+  --ink: #14211a;
+  --muted: #5f6f66;
+  --up: #d92d20;
+  --down: #12a150;
+}
+
 @theme inline {
   --font-sans: var(--font-bangla);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-up: var(--up);
+  --color-down: var(--down);
 }
 
 html {
@@ -10,5 +31,21 @@ html {
 }
 
 body {
+  background: var(--page);
+  color: var(--ink);
   font-family: var(--font-bangla), sans-serif;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 70s linear infinite;
+}
+.marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }

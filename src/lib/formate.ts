@@ -2,7 +2,7 @@ import { Product } from "./types";
 
 const BN_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
 
-// 148 -> "১৪৮"
+
 export function toBn(value: number | string): string {
   return String(value).replace(/\d/g, (d) => BN_DIGITS[Number(d)]);
 }
@@ -44,5 +44,18 @@ export function getDir(p: Product): ChangeDir {
 
 
 export function formatPct(pct: number): string {
-  return `${toBn(pct)}%`;
+  return `${toBn(Math.abs(pct))}%`;
+}
+
+const DAYS = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+const MONTHS = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
+
+
+export function getBanglaDate(date: Date = new Date()): string {
+  const dhaka = new Date(date.getTime() + 6 * 60 * 60 * 1000);
+  const day = DAYS[dhaka.getUTCDay()];
+  const d = toBn(dhaka.getUTCDate());
+  const m = MONTHS[dhaka.getUTCMonth()];
+  const y = toBn(dhaka.getUTCFullYear());
+  return `${day}, ${d} ${m}, ${y}`;
 }

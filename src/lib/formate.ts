@@ -44,7 +44,7 @@ export function getDir(p: Product): ChangeDir {
 
 
 export function formatPct(pct: number): string {
-  return `${toBn(Math.abs(pct))}%`;
+  return `${toBn(Math.abs(pct).toFixed(1))}%`;
 }
 
 const DAYS = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { getBanglaDate } from "@/lib/formate";
+import BanglaDate from "./BanglaDate";
+
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
         
         <div>
           <span className="inline-block rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
-            {getBanglaDate()}
+            {<BanglaDate />}
           </span>
 
           <h1 className="mt-4 text-3xl font-bold leading-tight text-ink sm:text-4xl lg:text-5xl">

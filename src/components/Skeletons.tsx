@@ -20,3 +20,15 @@ export function HomeSkeleton() {
     </div>
   );
 }
+
+export function CategorySkeleton() {
+  return (
+    <div>
+      <div className="mb-6 flex items-center gap-3">
+        <div className="skeleton h-12 w-12 rounded-xl" />
+        <div className="skeleton h-8 w-40" />
+      </div>
+      <ProductGridSkeleton count={9} />
+    </div>
+  );
+}

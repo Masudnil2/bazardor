@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Category } from "@/lib/types";
-import { getBanglaDate } from "@/lib/formate";
+import BanglaDate from "./BanglaDate";
+
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
@@ -25,7 +26,7 @@ export default function Navbar({ categories }: { categories: Category[] }) {
           </span>
           <span className="leading-tight">
             <span className="block text-lg font-bold text-ink">বাজার দর</span>
-            <span className="block text-xs text-muted">{getBanglaDate()}</span>
+            <span className="block text-xs text-muted">{<BanglaDate />}</span>
           </span>
         </Link>
 

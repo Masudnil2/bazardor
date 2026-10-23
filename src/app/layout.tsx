@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
@@ -23,10 +25,12 @@ export default async function RootLayout({
     getCategories(),
     getProducts(),
   ]);
+ 
 
   return (
     <html lang="bn" data-theme="light">
-      <body className={`${bangla.variable} antialiased`}>
+      <body className={`${bangla.variable} antialiased`}
+      suppressHydrationWarning>
         <Navbar categories={categories} />
         <Ticker products={products} />
         {children}
